@@ -1,0 +1,565 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
+// mouse import
+#include <dt-bindings/zmk/mouse.h>
+
+// helpers
+#include "zmk-helpers/helper.h"
+// Source desired key-position labels
+#include "zmk-helpers/key-labels/glove80.h"
+
+// layers
+#define _HOM 0
+#define _NAV 1
+#define _NUM 2
+#define _GAM 3
+
+#define __________ &trans
+#define XXXXXXXXXX &none
+
+// syntax shortening
+#define BRIDN   C_BRI_DN
+#define BRIUP   C_BRI_UP
+#define PREV    C_PREV
+#define NEXT    C_NEXT
+#define MUTE    C_MUTE
+#define VOLDN   C_VOL_DN
+#define VOLUP   C_VOL_UP
+#define PSBRK   PAUSE_BREAK
+#define NUM     KP_NUM
+#define NPEQ    KP_EQUAL
+#define NPDV    KP_DIVIDE
+#define NPMP    KP_MULTIPLY
+#define NPMN    KP_MINUS
+#define NPPL    KP_PLUS
+#define NPEN    KP_ENTER
+#define NPDT    KP_DOT
+#define CMENU   K_CMENU
+#define CLR     BT_CLR
+#define BL bootloader
+
+//left hand mod shortenings
+#define CL      LCTRL
+#define SL      LSHFT
+#define AL      LALT
+#define GL      LGUI
+
+//right hand mod shortening
+#define CR      RCTRL
+#define SR      RSHFT
+#define AR      RALT
+#define GR      RGUI
+
+// customs
+#define NSHFT   RSHIFT TAB
+#define NCTRL   LCTRL SPC
+#define SFSP    LSHFT SPC
+
+#define BLU        170
+#define GRN         85
+#define RED          0
+#define PNK        260
+
+#define SAT        100  // saturation
+#define BRT         25  // brightness
+
+
+#define R3_L    LT5 LT4 LT3 LT2 LT1 LT0
+#define R3_R    RT0 RT1 RT2 RT3 RT4 RT5
+
+#define R4_L    LM5 LM4 LM3 LM2 LM1 LM0
+#define R4_R    RM0 RM1 RM2 RM3 RM4 RM5
+
+#define KEYS_L  LC5 LC4 LC3 LC2 LC1 LN5 LN4 LN3 LN2 LN1 LN0 LM5 LM4 LM3 LM2 LM1 LM0 LB5 LB4 LB3 LB2 LB1 LB0 LF5 LF4 LF3 LF2 LF1 // left-hand keys
+#define KEYS_R  RC5 RC4 RC3 RC2 RC1 RN5 RN4 RN3 RN2 RN1 RN0 RM5 RM4 RM3 RM2 RM1 RM0 RB5 RB4 RB3 RB2 RB1 RB0 RF5 RF4 RF3 RF2 RF1 // rght-hand keys
+#define THUMBS  LH5 LH4 LH3 RH3 RH4 RH5 LH2 LH1 LH0 RH0 RH1 RH2
+
+
+/* left-hand HRMs */
+ZMK_HOLD_TAP(hml,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <200>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R R3_R THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
+)
+
+/* right-hand HRMs */
+ZMK_HOLD_TAP(hmr,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <200>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L R3_L THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
+)
+
+// // left control/space
+// ZMK_HOLD_TAP(lct,
+//     flavor = "hold-preferred";
+//     tapping-term-ms = <200>;
+//     quick-tap-ms = <200>;                // repeat on tap-into-hold
+//     require-prior-idle-ms = <200>;
+//     bindings = <&kp>, <&nspc>;
+//     hold-trigger-key-positions = <RH1             RH2            KEYS_L>;
+//                                 //backspace       Shift/space
+// )
+
+// to nav/space
+ZMK_HOLD_TAP(lct,
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <0>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <200>;
+    bindings = <&htonmo>, <&nspc>;
+    hold-trigger-key-positions = <R4_L R4_R RM0 RM5 RH2 RH4 RH5 RT1 RT2 RT3 RT4 LT3 LT2 LT1>;
+                                //backspace       Shift/space
+)
+/*                               GLOVE80 KEY MATRIX / LAYOUT MAPPING
+ ╭────────────────────╮       ╭────────────────────╮ ╭────────────────────╮       ╭────────────────────╮
+ │  0   1   2   3   4 ╰───┬───╯  5   6   7   8   9 │ │ LC5 LC4 LC3 LC2 LC1╰───┬───╯ RC1 RC2 RC3 RC4 RC5│
+ │ 10  11  12  13  14  15 │ 16  17  18  19  20  21 │ │ LN5 LN4 LN3 LN2 LN1 LN0│ RN0 RN1 RN2 RN3 RN4 RN5│
+ │ 22  23  24  25  26  27 │ 28  29  30  31  32  33 │ │ LT5 LT4 LT3 LT2 LT1 LT0│ RT0 RT1 RT2 RT3 RT4 RT5│
+ │ 34  35  36  37  38  39 │ 40  41  42  43  44  45 │ │ LM5 LM4 LM3 LM2 LM1 LM0│ RM0 RM1 RM2 RM3 RM4 RM5│
+ │ 46  47  48  49  50  51 │ 58  59  60  61  62  63 │ │ LB5 LB4 LB3 LB2 LB1 LB0│ RB0 RB1 RB2 RB3 RB4 RB5│
+ │ 64  65  66  67  68 ╭───┴───╮ 75  76  77  78  79 │ │ LF5 LF4 LF3 LF2 LF1╭───┴───╮ RF1 RF2 RF3 RF4 RF5│
+ ╰───────────┬────────┴───┬───┴────────┬───────────╯ ╰───────────┬────────┴───┬───┴────────┬───────────╯
+             │ 52  53  54 │ 55  56  57 │                         │ LH5 LH4 LH3│ RH3 RH4 RH5│
+             │ 69  70  71 │ 72  73  74 │                         │ LH2 LH1 LH0│ RH0 RH1 RH2│
+             ╰────────────┴────────────╯                         ╰────────────┴────────────╯
+ */
+
+
+// // right shift/ right one desktop
+// ZMK_HOLD_TAP(rts,
+//     flavor = "hold-preferred";
+//     tapping-term-ms = <200>;
+//     quick-tap-ms = <200>;                // repeat on tap-into-hold
+//     require-prior-idle-ms = <200>;
+//     bindings = <&kp SL>, <&dtrt>;
+//     hold-trigger-key-positions = <R3_L R3_R>;
+//                                 //backspace       Shift/space
+// )
+
+// right shift/tab
+ZMK_HOLD_TAP(lsh,
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+    bindings = <&kp>, <&ntab>;
+)
+
+ZMK_HOLD_TAP(lsr,
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+    bindings = <&kp>, <&dtrt>;
+)
+
+/ {
+    macros {
+        // Bluetoth Profiles
+        // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        bt_0: bt_profile_macro_0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 0>;
+        };
+        bt_1: bt_profile_macro_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 1>;
+        };
+        bt_2: bt_profile_macro_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 2>;
+        };
+        bt_3: bt_profile_macro_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&out OUT_BLE>,
+                  <&bt BT_SEL 3>;
+        };
+
+        // Layer Toggles with Colors
+        // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        to_hom: to_hom {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &to _HOM>
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(BLU, SAT, BRT)>
+                ;
+        };
+        to_nav: to_nav {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &to _NAV>
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(RED, SAT, BRT)>
+                ;
+        };
+        to_num: to_num {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &to _NUM>
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(GRN, SAT, BRT)>
+                ;
+        };
+        to_gam: to_gam {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &to _GAM>
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(PNK, SAT, BRT)>
+                ;
+        };
+        htonmo: home_to_nav_momentary {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &rgb_ug RGB_COLOR_HSB(RED, SAT, BRT)>
+                , <&macro_press &mo _NAV>
+                , <&macro_pause_for_release>
+                , <&macro_release &mo _NAV>
+                , <&macro_tap &rgb_ug RGB_COLOR_HSB(BLU, SAT, BRT)>
+                ;
+        };
+
+        // Macros
+        // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        search: search_highlighted_selection {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp C &kp T &kp V>
+                , <&macro_release &kp LCTRL>
+                , <&macro_tap &kp ENTER>
+                ;
+        };
+        cntrc: click_center {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_wait_time 50>
+                , <&macro_tap &kp F20 &mkp LCLK>
+                ;
+        };
+        dtrt: desktop_right{
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp LC(LG(RIGHT))>
+                ;
+        };
+        sidec: click_side {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_wait_time 50>
+                , <&macro_tap &kp F19 &mkp LCLK>
+                ;
+        };
+        kalshi: kalshi_buy{
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_wait_time 100>
+                , <&kp ENTER>
+                , <&macro_wait_time 200>
+                , <&kp F17>
+                , <&kp F17>
+                , <&kp ENTER>
+                ;
+        };
+        updir: up_directory {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <1>;
+            tap-ms = <1>;
+            bindings
+                = <&macro_wait_time 1>
+                , <&macro_tap &kp DOT &kp DOT &kp FSLH>
+                ;
+        };
+        dblsp: double_space {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <50>;
+            tap-ms = <50>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp SPC &kp SPC>
+                ;
+        };
+        turboc: turbo_click {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <30>;
+            tap-ms = <30>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK >
+                ;
+        };
+        colon: colon {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp SEMI>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+        btb: back_tab_firefox {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp F17>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+        mc_selw: mc_select_word {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LA(LEFT) &kp LA(RIGHT)>
+                , <&macro_press &kp LA(LS(LEFT))>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LA(LS(LEFT))>
+                // , <&macro_tap &sl SHORTS_EXT_1>
+                ;
+        };
+        // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    };
+    // chosen {
+    //     zmk,charmap = &charmap_us;
+    // };
+
+    behaviors {
+        hello_world: hello_world {
+            compatible = "zmk,behavior-send-string";
+            #binding-cells = <0>;
+            text = "Hello, world!";
+        };
+        mtly: mod_tap_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&htonmo>, <&to_nav>;
+        };
+
+        //  SHIFT
+        // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        npgup: npgdn_up {                                   // Shift + PGUP  = SHFT + WIN + Left        (Send Desktop Left)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp PG_UP>, <&kp LS(LG(LEFT))>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        npgdn: new_page_down {                              // Shift + PGDN  = SHFT + WIN + Right       (Send Desktop Right)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp PG_DN>, <&kp LS(LG(RIGHT))>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        nspc: new_space {                                   // Shift + Space = ALT + LEFT               (Previous)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        clickr: clicker {                                   // Shift + clickr= click left               (Click Left of Screen)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&cntrc>, <&sidec>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        nleft: new_left_arrow {                             // LSFT  + Left  = CTRL + SHFT + TAB        (Move Tab Right)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT>, <&kp LC(LS(TAB))>;
+            mods = <(MOD_LSFT)>;
+        };
+        nright: new_right_arrow {                           // LSFT  + Right = CTRL + TAB               (Move Tab Right)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT>, <&kp LC(TAB)>;
+            mods = <(MOD_LSFT)>;
+        };
+        nbspc: new_backspace {                              // Shift + BSPC  = DELETE                   (Click Left of Screen)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        //  CONTROL
+        // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        colc: colon_close {                                 // Ctrl  + `      = ALT + F4                 (Close Window)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SEMI>, <&kp LA(F4)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        ntab: new_tab {                                     // Ctl   + Space = CTL + WIN + Right        (Move Desktop Right)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&kp LC(LG(RIGHT))>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        ncomma: new_comma {                                 // Ctrl  +  ,    =  (
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp LS(N9)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        nperiod: new_period {                               // Ctrl  +  .    =  )
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp LS(N0)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        nselw: new_select_word{                             // Shift + BSPC  = DELETE                   (Click Left of Screen)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mc_selw>, <&kp LA(F4)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        _HOM {
+            bindings = <
+            // ┌──────────┬──────────┬──────────┬──────────┬──────────┐                                                                                         ┌──────────┬──────────┬──────────┬──────────┬──────────┐
+            // |    F1    |    F2    |    F3    |    F4    |    F5    |                                                                                         |    F6    |    F7    |    F8    |    F9    |    F10   |
+                &kp F1     &kp F2     &kp F3     &kp F4     &kp F5                                                                                               &kp F6     &kp F7     &kp F8     &kp F9     &kp F10
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┐                                                                   ┌──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |   GUI    |    1     |    2     |    3     |    4     |    5     |                                                                   |    6     |    7     |    8     |    9     |    0     |    \     |
+                &kp LGUI   &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                                                                         &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp BSLH
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    -     |    Q     |    W     |    E     |    R     |    T     |                                                                   |    Y     |    U     |    I     |    O     |    P     |    =     |
+                &kp MINUS  &kp Q      &kp W      &kp E      &kp R      &kp T                                                                          &kp Y      &kp U      &kp I      &kp O      &kp P      &kp EQUAL
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
+                &kp SEMI   &hml SR A  &hml GL S  &hml AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hmr AR K  &hmr GR L  &hmr SR SQT &kp ENTER
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
+                &kp GRAVE  &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &colc
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+                &mc_selw   &kp LBKT   &kp RBKT   &nleft     &nright               &lct CL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lsh SL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
+            // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
+            >;
+        };
+
+        _NAV {
+            bindings = <
+
+            // ┌──────────┬──────────┬──────────┬──────────┬──────────┐                                                                                         ┌──────────┬──────────┬──────────┬──────────┬──────────┐
+            // |    F1    |    F2    |    F3    |    F4    |    F5    |                                                                                         |    F6    |    F7    |    F8    |    F9    |    F10   |
+                &BL        __________ __________ __________ __________                                                                                           __________ __________ __________ __________ &BL
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┐                                                                   ┌──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |   GUI    |    1     |    2     |    3     |    4     |    5     |                                                                   |    6     |    7     |    8     |    9     |    0     |    \     |
+                __________ __________ __________ __________ __________ __________                                                                     __________ __________ __________ __________ __________ __________
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    -     |    Q     |    W     |    E     |    R     |    T     |                                                                   |    Y     |    U     |    I     |    O     |    P     |    =     |
+                __________ __________ &kp MINUS  &kp GRAVE  &kp MINUS  __________                                                                     __________ &colon     &kp SEMI   &kp EQUAL  &kp BSLH   __________
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
+                __________ &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 &kp SEMI
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
+                &to_num    &kp LBKT   &kp RBKT   __________ __________ &kp F17    __________ __________ __________   &kalshi    &kp F18    &kp F17    &clickr    &search    &kp CAPS   __________ &updir     &mc_selw
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+           &rgb_ug RGB_TOG __________ __________ &kp PREV   &kp NEXT              __________ &to_hom    __________   &kp C_PP   __________ &lsr SL 0             &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT   &to_hom
+            // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
+            >;
+        };
+
+        _NUM {
+            bindings = <
+            // ┌──────────┬──────────┬──────────┬──────────┬──────────┐                                                                                         ┌──────────┬──────────┬──────────┬──────────┬──────────┐
+            // |    F1    |    F2    |    F3    |    F4    |    F5    |                                                                                         |    F6    |    F7    |    F8    |    F9    |    F10   |
+                &bt BT_CLR &kp BRIUP  &kp PREV   &kp NEXT   &kp C_PP                                                                                             &kp MUTE   &kp VOLDN  &kp VOLUP  XXXXXXXXXX &kp PSBRK
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┐                                                                   ┌──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |   GUI    |    1     |    2     |    3     |    4     |    5     |                                                                   |    6     |    7     |    8     |    9     |    0     |    \     |
+                &BL        XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX &kp HOME                                                                       &kp LPAR   &kp NUM    &kp NPEQ   &kp NPDV   &kp NPMP   &BL
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    -     |    Q     |    W     |    E     |    R     |    T     |                                                                   |    Y     |    U     |    I     |    O     |    P     |    =     |
+              &out OUT_USB XXXXXXXXXX XXXXXXXXXX &kp UP     XXXXXXXXXX &kp END                                                                        &kp RPAR   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp NPMN   &kp SLCK
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
+           &rgb_ug RGB_EFF XXXXXXXXXX &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_UP                                                                      &kp PRCNT  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp NPPL   XXXXXXXXXX
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
+                &to_nav    &kp CMENU  XXXXXXXXXX &kp F11    &kp F12    &kp PG_DN  &bt_1      &bt_3      &bt_3        __________ __________ __________ &kp COMMA  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp NPEN   &to_gam
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+                __________ &kp CAPS   &kp INS    &kp F11    &kp F12               &bt_0      __________ &out OUT_USB __________ __________ __________            &kp KP_N0  &kp KP_N0  &kp NPDT   &kp NPEN   __________
+            // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
+            >;
+        };
+
+        _GAM {
+            bindings = <
+            // ┌──────────┬──────────┬──────────┬──────────┬──────────┐                                                                                         ┌──────────┬──────────┬──────────┬──────────┬──────────┐
+            // |    F1    |    F2    |    F3    |    F4    |    F5    |                                                                                         |    F6    |    F7    |    F8    |    F9    |    F10   |
+                &to_hom    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX                                                                                           XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┐                                                                   ┌──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |   GUI    |    1     |    2     |    3     |    4     |    5     |                                                                   |    6     |    7     |    8     |    9     |    0     |    \     |
+                XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX                                                                     XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    -     |    Q     |    W     |    E     |    R     |    T     |                                                                   |    Y     |    U     |    I     |    O     |    P     |    =     |
+                &kp TAB    &kp ESC    &kp TAB    &kp ENTER  &dblsp     XXXXXXXXXX                                                                     XXXXXXXXXX &dblsp     &kp ENTER  &kp TAB    &kp ESC    &kp TAB
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
+                &kp ESC    &kp DOWN   &kp UP     &nleft     &nright    XXXXXXXXXX                                                                     XXXXXXXXXX &kp DOWN   &kp UP     &nleft     &nright    &kp ESC
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
+                XXXXXXXXXX XXXXXXXXXX &kp CR     &kp SL     &kp TAB    XXXXXXXXXX &dblsp     __________ __________   __________ __________ &dblsp     XXXXXXXXXX &kp TAB    &kp SR     &kp CR     XXXXXXXXXX &to_num
+            // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+                XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX            &mt NCTRL  &kp ENTER  __________   __________ &kp ENTER  &mt SFSP              &turboc    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
+            // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
+            >;
+        };
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    };
+};
