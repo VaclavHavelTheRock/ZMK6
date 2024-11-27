@@ -380,11 +380,6 @@ ZMK_HOLD_TAP(lsr,
             tapping-term-ms = <200>;
             bindings = <&htonmo>, <&to_nav>;
         };
-         mtly: mod_tap_layer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
         dtlf: desktop_left {                                   // Shift + PGUP  = SHFT + WIN + Left        (Send Desktop Left)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
