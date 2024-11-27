@@ -279,6 +279,13 @@ ZMK_HOLD_TAP(lsr,
                 = <&kp LC(LG(RIGHT))>
                 ;
         };
+        dtlf: desktop_left{
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp LC(LG(LEFT))>
+                ;
+        };
         sidec: click_side {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -379,18 +386,6 @@ ZMK_HOLD_TAP(lsr,
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             bindings = <&htonmo>, <&to_nav>;
-        };
-        dtlf: desktop_left {                                   // Shift + PGUP  = SHFT + WIN + Left        (Send Desktop Left)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LG(LEFT))>, <&kp LC(LG(LEFT))>;
-            mods = <(MOD_RSFT)>;
-        };
-        dtrt: desktop_right {                                   // Shift + PGUP  = SHFT + WIN + Left        (Send Desktop Left)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LG(RIGHT))>, <&kp LC(LG(RIGHT))>;
-            mods = <(MOD_RSFT)>;
         };
 
         //  SHIFT
