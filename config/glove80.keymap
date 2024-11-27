@@ -117,9 +117,9 @@ ZMK_HOLD_TAP(lct,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <0>;                // repeat on tap-into-hold
-    require-prior-idle-ms = <200>;
+    require-prior-idle-ms = <100>;
     bindings = <&htonmo>, <&nspc>;
-    hold-trigger-key-positions = <R4_L R4_R RM0 RM5 RH2 RH4 RH5 RT1 RT2 RT3 RT4 LT3 LT2 LT1>;
+    // hold-trigger-key-positions = <R4_L R4_R RM0 RM5 RH2 RH4 RH5 RT1 RT2 RT3 RT4 LT3 LT2 LT1>;
                                 //backspace       Shift/space
 )
 /*                               GLOVE80 KEY MATRIX / LAYOUT MAPPING
@@ -380,6 +380,23 @@ ZMK_HOLD_TAP(lsr,
             tapping-term-ms = <200>;
             bindings = <&htonmo>, <&to_nav>;
         };
+         mtly: mod_tap_layer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+        dtlf: desktop_left {                                   // Shift + PGUP  = SHFT + WIN + Left        (Send Desktop Left)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LG(LEFT))>, <&kp LC(LG(LEFT))>;
+            mods = <(MOD_RSFT)>;
+        };
+        dtrt: desktop_right {                                   // Shift + PGUP  = SHFT + WIN + Left        (Send Desktop Left)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LG(RIGHT))>, <&kp LC(LG(RIGHT))>;
+            mods = <(MOD_RSFT)>;
+        };
 
         //  SHIFT
         // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -471,7 +488,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp F1     &kp F2     &kp F3     &kp F4     &kp F5                                                                                               &kp F6     &kp F7     &kp F8     &kp F9     &kp F10
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┐                                                                   ┌──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |   GUI    |    1     |    2     |    3     |    4     |    5     |                                                                   |    6     |    7     |    8     |    9     |    0     |    \     |
-                &kp LGUI   &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                                                                         &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp BSLH
+                &kp LGUI   &kp N1     &kp N2     &dtlf      &kp N4     &kp N5                                                                         &kp N6     &kp N7     &dtrt      &kp N9     &kp N0     &kp BSLH
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    -     |    Q     |    W     |    E     |    R     |    T     |                                                                   |    Y     |    U     |    I     |    O     |    P     |    =     |
                 &kp MINUS  &kp Q      &kp W      &kp E      &kp R      &kp T                                                                          &kp Y      &kp U      &kp I      &kp O      &kp P      &kp EQUAL
