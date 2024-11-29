@@ -272,6 +272,14 @@ ZMK_HOLD_TAP(lsr,
                 , <&macro_tap &kp F20 &mkp LCLK>
                 ;
         };
+        insp: insert_space{
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_wait_time 10>
+                , <&macro_tap &kp SPACE &kp LEFT>
+                ;
+        };
         dtrt: desktop_right{
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -490,7 +498,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp GRAVE  &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &colc
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
-                &mc_selw   &kp LBKT   &kp RBKT   &nleft     &nright               &lct CL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lsh SL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
+                &search    &kp LBKT   &kp RBKT   &nleft     &nright               &lct CL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lsh SL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
@@ -506,10 +514,10 @@ ZMK_HOLD_TAP(lsr,
                 __________ __________ __________ __________ __________ __________                                                                     __________ __________ __________ __________ __________ __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    -     |    Q     |    W     |    E     |    R     |    T     |                                                                   |    Y     |    U     |    I     |    O     |    P     |    =     |
-                __________ &kp GRAVE  &kp MINUS  &kp LBKT   &kp RBKT   &search                                                                        &updir     &colon     &kp SEMI   &kp EQUAL  &kp BSLH   __________
+                __________ &kp GRAVE  &kp MINUS  &kp LBKT   &kp RBKT   &insp                                                                          &updir     &colon     &kp SEMI   &kp EQUAL  &kp BSLH   __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
-                __________ &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 __________
+                &kp INS    &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &to_num    &kp LBKT   &kp RBKT   __________ __________ &kp F17    __________ __________ __________   &kalshi    &kp F18    &kp F17    &clickr    __________ __________ __________ __________ &mc_selw
