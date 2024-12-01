@@ -158,7 +158,7 @@ ZMK_HOLD_TAP(lsh,
 ZMK_HOLD_TAP(lsr,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
-    bindings = <&kp>, <&dtrt>;
+    bindings = <&kp>, <&kp SPACE>;
 )
 
 / {
@@ -413,7 +413,8 @@ ZMK_HOLD_TAP(lsr,
         nspc: new_space {                                   // Shift + Space = ALT + LEFT               (Previous)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
+            // bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
+            bindings = <&kp SPC>, <&kp SPC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         clickr: clicker {                                   // Shift + clickr= click left               (Click Left of Screen)
