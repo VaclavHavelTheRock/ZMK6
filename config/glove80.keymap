@@ -158,7 +158,7 @@ ZMK_HOLD_TAP(lsh,
 ZMK_HOLD_TAP(lsr,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
-    bindings = <&kp>, <&kp SPACE>;
+    bindings = <&kp>, <&nspc>;
 )
 
 / {
