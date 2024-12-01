@@ -450,7 +450,7 @@ ZMK_HOLD_TAP(lsr,
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &kp GRAVE  &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &search
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+            // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  MOERGO  |
                 &mtly 1 1  &kp DOWN   &kp UP     &nleft     &nright               &lct CL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lsh SL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
@@ -475,8 +475,8 @@ ZMK_HOLD_TAP(lsr,
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &to_num    &kp LBKT   &kp RBKT   __________ __________ &kp F17    __________ __________ __________   &kalshi    &kp F18    &kp F17    &clickr    __________ __________ __________ __________ &mc_selw
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
-           &rgb_ug RGB_TOG __________ __________ &kp PREV   &kp NEXT              __________ &to_hom    __________   &kp C_PP   __________ &lsr SL 0             &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT   &to_hom
+            // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  MOERGO  |
+                &to_hom    &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT              __________ &to_hom    __________   &kp C_PP   __________ &lsr SL 0             &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT   &to_hom
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
@@ -499,7 +499,7 @@ ZMK_HOLD_TAP(lsr,
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &to_nav    &kp CMENU  XXXXXXXXXX &kp F11    &kp F12    &kp PG_DN  &bt_1      &bt_3      &bt_3        __________ __________ __________ &kp COMMA  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp NPEN   &to_gam
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+            // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  MOERGO  |
                 __________ &kp CAPS   &kp INS    &kp F11    &kp F12               &bt_0      __________ &out OUT_USB __________ __________ __________            &kp KP_N0  &kp KP_N0  &kp NPDT   &kp NPEN   __________
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
@@ -524,6 +524,7 @@ ZMK_HOLD_TAP(lsr,
                 XXXXXXXXXX XXXXXXXXXX &kp CR     &kp SL     &kp TAB    XXXXXXXXXX &dblsp     __________ __________   __________ __________ &dblsp     XXXXXXXXXX &kp TAB    &kp SR     &kp CR     XXXXXXXXXX &to_num
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+            // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  MOERGO  |
                 XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX            &mt NCTRL  &kp ENTER  __________   __________ &kp ENTER  &mt SFSP              &turboc    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
