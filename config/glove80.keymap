@@ -410,13 +410,6 @@ ZMK_HOLD_TAP(lsr,
             bindings = <&kp PG_DN>, <&kp LS(LG(RIGHT))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        nspc: new_space {                                   // Shift + Space = ALT + LEFT               (Previous)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            // bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
-            bindings = <&kp SPC>, <&kp SPC>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
         clickr: clicker {                                   // Shift + clickr= click left               (Click Left of Screen)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -473,6 +466,13 @@ ZMK_HOLD_TAP(lsr,
             #binding-cells = <0>;
             bindings = <&mc_selw>, <&kp LA(F4)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        nspc: new_space {                                   // Shift + Space = ALT + LEFT               (Previous)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            // bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
+            bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
+            mods = <(MOD_RCTL)>;
         };
         // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     };
