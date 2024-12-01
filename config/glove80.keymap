@@ -436,7 +436,7 @@ ZMK_HOLD_TAP(lsr,
             bindings = <
             // ┌──────────┬──────────┬──────────┬──────────┬──────────┐                                                                                         ┌──────────┬──────────┬──────────┬──────────┬──────────┐
             // |    F1    |    F2    |    F3    |    F4    |    F5    |                                                                                         |    F6    |    F7    |    F8    |    F9    |    F10   |
-                &kp F1     &kp F2     &kp F3     &kp F4     &kp F5                                                                                               &kp F6     &kp F7     &kp F8     &kp F9     &kp F10
+                &kp F1     &kp F2     &kp F3  &rgb_ug RGB_TOG &kp F5                                                                                             &kp F6     &kp F7     &kp F8     &kp F9     &kp F10
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┐                                                                   ┌──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |   GUI    |    1     |    2     |    3     |    4     |    5     |                                                                   |    6     |    7     |    8     |    9     |    0     |    \     |
                 &kp LGUI   &kp N1     &kp N2     &kp F5     &kp N4     &kp N5                                                                         &kp N6     &kp N7     &kp F6     &kp N9     &kp N0     &kp BSLH
@@ -450,8 +450,8 @@ ZMK_HOLD_TAP(lsr,
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &kp GRAVE  &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &search
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
-                &search    &kp LBKT   &kp RBKT   &nleft     &nright               &lct CL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lsh SL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
+            // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+                &mtly 1 1  &kp DOWN   &kp UP     &nleft     &nright               &lct CL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lsh SL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
