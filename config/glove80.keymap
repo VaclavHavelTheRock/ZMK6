@@ -101,18 +101,7 @@ ZMK_HOLD_TAP(hmr,
     hold-trigger-on-release;             // delay positional check until key-release
 )
 
-// // left control/space
-// ZMK_HOLD_TAP(lct,
-//     flavor = "hold-preferred";
-//     tapping-term-ms = <200>;
-//     quick-tap-ms = <200>;                // repeat on tap-into-hold
-//     require-prior-idle-ms = <200>;
-//     bindings = <&kp>, <&nspc>;
-//     hold-trigger-key-positions = <RH1             RH2            KEYS_L>;
-//                                 //backspace       Shift/space
-// )
-
-// to nav/space
+// [Left Thumb] Tap: Space, Hold: MO Nav
 ZMK_HOLD_TAP(lct,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
@@ -136,25 +125,14 @@ ZMK_HOLD_TAP(lct,
              ╰────────────┴────────────╯                         ╰────────────┴────────────╯
  */
 
-
-// // right shift/ right one desktop
-// ZMK_HOLD_TAP(rts,
-//     flavor = "hold-preferred";
-//     tapping-term-ms = <200>;
-//     quick-tap-ms = <200>;                // repeat on tap-into-hold
-//     require-prior-idle-ms = <200>;
-//     bindings = <&kp SL>, <&dtrt>;
-//     hold-trigger-key-positions = <R3_L R3_R>;
-//                                 //backspace       Shift/space
-// )
-
-// right shift/tab
+// [Right Thumb] Tap: Tab, Hold: Shift
 ZMK_HOLD_TAP(lsh,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
     bindings = <&kp>, <&ntab>;
 )
 
+// [Right Thumb] Tap: Space, Hold: Shift
 ZMK_HOLD_TAP(lsr,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
@@ -470,7 +448,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp SEMI   &hml SR A  &hml GL S  &hml AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hmr AR K  &hmr GR L  &hmr SR SQT &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                &kp GRAVE  &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &colc
+                &kp GRAVE  &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &search
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
                 &search    &kp LBKT   &kp RBKT   &nleft     &nright               &lct CL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lsh SL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
