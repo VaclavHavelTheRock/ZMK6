@@ -230,7 +230,7 @@ ZMK_HOLD_TAP(lsr,
 
         // Macros
         // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        search: search_highlighted_selection {
+        search: search_highlighted_selection {              //                                          (Search Highlighted Section)
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <30>;
@@ -242,7 +242,7 @@ ZMK_HOLD_TAP(lsr,
                 , <&macro_tap &kp ENTER>
                 ;
         };
-        cntrc: click_center {
+        cntrc: click_center {                               //                                          (Click Center of Page)
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -250,29 +250,7 @@ ZMK_HOLD_TAP(lsr,
                 , <&macro_tap &kp F20 &mkp LCLK>
                 ;
         };
-        insp: insert_space{
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_wait_time 10>
-                , <&macro_tap &kp SPACE &kp LEFT>
-                ;
-        };
-        dtrt: desktop_right{
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&kp LC(LG(RIGHT))>
-                ;
-        };
-        dtlf: desktop_left{
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&kp LC(LG(LEFT))>
-                ;
-        };
-        sidec: click_side {
+        sidec: click_side {                                 //                                          (Click Left Side of Page)
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -280,7 +258,15 @@ ZMK_HOLD_TAP(lsr,
                 , <&macro_tap &kp F19 &mkp LCLK>
                 ;
         };
-        kalshi: kalshi_buy{
+        insp: insert_space{                                 //                                          (Space and Move Cursor Left)
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_wait_time 10>
+                , <&macro_tap &kp SPACE &kp LEFT>
+                ;
+        };
+        kalshi: kalshi_buy{                                 //                                          (Enter + Tab + Tab + Enter)
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -292,7 +278,7 @@ ZMK_HOLD_TAP(lsr,
                 , <&kp ENTER>
                 ;
         };
-        updir: up_directory {
+        updir: up_directory {                               //                                          (Send "../")
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <1>;
@@ -302,7 +288,7 @@ ZMK_HOLD_TAP(lsr,
                 , <&macro_tap &kp DOT &kp DOT &kp FSLH>
                 ;
         };
-        dblsp: double_space {
+        dblsp: double_space {                               //                                          (Send "  ")
             compatible = "zmk,behavior-macro";
             wait-ms = <50>;
             tap-ms = <50>;
@@ -311,7 +297,7 @@ ZMK_HOLD_TAP(lsr,
                 = <&macro_tap &kp SPC &kp SPC>
                 ;
         };
-        turboc: turbo_click {
+        turboc: turbo_click {                               //                                          (17 Clicks)
             compatible = "zmk,behavior-macro";
             wait-ms = <30>;
             tap-ms = <30>;
@@ -320,7 +306,7 @@ ZMK_HOLD_TAP(lsr,
                 = <&macro_tap &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK >
                 ;
         };
-        colon: colon {
+        colon: colon {                                     //                                          (:)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
             tap-ms = <0>;
@@ -329,7 +315,7 @@ ZMK_HOLD_TAP(lsr,
                 = <&macro_tap &kp LS(SEMI)>
                 ;
         };
-        btb: back_tab_firefox {
+        btb: back_tab_firefox {                            //                                          (Undo Tab)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
             tap-ms = <0>;
@@ -338,7 +324,7 @@ ZMK_HOLD_TAP(lsr,
                 = <&macro_tap &kp LS(F17)>
                 ;
         };
-        mc_selw: mc_select_word {
+        mc_selw: mc_select_word {                          //                                          (Select Word)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
             tap-ms = <0>;
@@ -414,13 +400,13 @@ ZMK_HOLD_TAP(lsr,
             bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
             mods = <(MOD_RCTL)>;
         };
-        ncomma: new_comma {                                 // Ctrl  +  ,    =  (
+        ncomma: new_comma {                                 // Ctrl  +  ,    =  (                       (Left Parinthesis)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp LS(N9)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-        nperiod: new_period {                               // Ctrl  +  .    =  )
+        nperiod: new_period {                               // Ctrl  +  .    =  )                       (Right Parinthesis)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp LS(N0)>;
@@ -523,7 +509,6 @@ ZMK_HOLD_TAP(lsr,
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 XXXXXXXXXX XXXXXXXXXX &kp CR     &kp SL     &kp TAB    XXXXXXXXXX &dblsp     __________ __________   __________ __________ &dblsp     XXXXXXXXXX &kp TAB    &kp SR     &kp CR     XXXXXXXXXX &to_num
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
             // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  MOERGO  |
                 XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX            &mt NCTRL  &kp ENTER  __________   __________ &kp ENTER  &mt SFSP              &turboc    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
