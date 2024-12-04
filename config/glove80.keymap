@@ -431,7 +431,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp MINUS  &kp Q      &kp W      &kp E      &kp R      &kp T                                                                          &kp Y      &kp U      &kp I      &kp O      &kp P      &kp EQUAL
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |   MENU   |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
-                &kp APP    &hml SR A  &hml GL S  &hml AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hmr AR K  &hmr GR L  &hmr SR SQT &kp ENTER
+                &kp K_APP  &hml SR A  &hml GL S  &hml AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hmr AR K  &hmr GR L  &hmr SR SQT &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &kp GRAVE  &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &search
