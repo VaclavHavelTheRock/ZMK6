@@ -344,7 +344,7 @@ ZMK_HOLD_TAP(lsr,
             bindings
                 = <&kp LS(LG(LEFT))>
                 ;
-        }
+        };
 
         sndr: send_window_right {
             compatible = "zmk,behavior-macro";
@@ -354,7 +354,7 @@ ZMK_HOLD_TAP(lsr,
             bindings
                 = <&kp LS(LG(RIGHT))>
                 ;
-        }
+        };
         // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     };
 
@@ -474,7 +474,7 @@ ZMK_HOLD_TAP(lsr,
                 &mc_selw   &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &npause    &nhome     &nend      &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &search
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  MOERGO  |
-                &mtly 1 1  &kp DOWN   &kp UP     &nleft     &nright               &lct CL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lct CL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
+                &mtly 1 1  &kp DOWN   &kp UP     &nleft     &nright               &lsh SL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lct CL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
@@ -499,7 +499,7 @@ ZMK_HOLD_TAP(lsr,
                 __________ __________ __________ __________ __________ __________ &sendl     &sendr     __________   __________ __________ __________ &clickr    __________ __________ __________ __________ __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  MOERGO  |
-                &to_hom    &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT              &lsr SL 0  __________ __________   __________ __________ __________             &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT   &to_hom
+                &to_hom    &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT              &lsr SL 0  __________ __________   __________ __________ __________            &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT   &to_hom
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
