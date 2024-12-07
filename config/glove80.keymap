@@ -448,14 +448,14 @@ ZMK_HOLD_TAP(lsr,
         ntab: new_tab {                                     // Ctl   + Space = CTL + WIN + Right        (Move Desktop Right)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp TAB>, <&kp LC(LG(RIGHT))>;
+            bindings = <&kp TAB>, <&kp LC(LG(LEFT))>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         nspc: new_space {                                   // Ctrl  + Space = CTL + WIN + Left         (Move Desktop Left)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
-            mods = <(MOD_RCTL)>;
+            bindings = <&kp SPC>, <&kp LC(LG(RIGHT))>;
+            mods = <(MOD_LCTL)>;
         };
         ncomma: new_comma {                                 // Ctrl  +  ,    =  (                       (Left Parinthesis)
             compatible = "zmk,behavior-mod-morph";
@@ -501,7 +501,6 @@ ZMK_HOLD_TAP(lsr,
 
         _NAV {
             bindings = <
-
             // ┌──────────┬──────────┬──────────┬──────────┬──────────┐                                                                                         ┌──────────┬──────────┬──────────┬──────────┬──────────┐
             // |    F1    |    F2    |    F3    |    F4    |    F5    |                                                                                         |    F6    |    F7    |    F8    |    F9    |    F10   |
                 &BL        __________ __________ __________ __________                                                                                           __________ __________ __________ __________ &BL
