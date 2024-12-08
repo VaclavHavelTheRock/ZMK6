@@ -345,7 +345,6 @@ ZMK_HOLD_TAP(lsr,
                 = <&kp LS(LG(LEFT))>
                 ;
         };
-
         sndr: send_window_right {                          //                                          (Send Window Right)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
@@ -379,7 +378,7 @@ ZMK_HOLD_TAP(lsr,
             tap-ms = <0>;
             #binding-cells = <0>;
             bindings
-                = <&kp LC(MINUS)>
+                = <&kp LS(MINUS)>
                 ;
         };
 
