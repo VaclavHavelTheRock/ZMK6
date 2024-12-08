@@ -336,9 +336,9 @@ ZMK_HOLD_TAP(lsr,
                 , <&macro_release &kp LA(LS(LEFT))>
                 ;
         };
-        sndl: send_window_left {
+        sndl: send_window_left {                           //                                          (Send Window Left)
             compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
+            wait-ms = <0>;,
             tap-ms = <0>;
             #binding-cells = <0>;
             bindings
@@ -346,7 +346,7 @@ ZMK_HOLD_TAP(lsr,
                 ;
         };
 
-        sndr: send_window_right {
+        sndr: send_window_right {                          //                                          (Send Window Right)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
             tap-ms = <0>;
@@ -355,7 +355,7 @@ ZMK_HOLD_TAP(lsr,
                 = <&kp LS(LG(RIGHT))>
                 ;
         };
-        tblf: tab_left {
+        tblf: tab_left {                                   //                                          (Move Left a Tab)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
             tap-ms = <0>;
@@ -364,13 +364,22 @@ ZMK_HOLD_TAP(lsr,
                 = <&kp LC(LS(TAB))>
                 ;
         };
-        tbrt: tab_right {
+        tbrt: tab_right {                                  //                                          (Move Right a Tab)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
             tap-ms = <0>;
             #binding-cells = <0>;
             bindings
                 = <&kp LC(TAB)>
+                ;
+        };
+        undr: underscore {                                 //                                          (_)
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&kp LC(MINUS)>
                 ;
         };
 
@@ -427,13 +436,13 @@ ZMK_HOLD_TAP(lsr,
         nend: new_end {                                     // Shift + END   = Firefox Tab              (Firefox TAb)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp END>, <&kp F17>;
+            bindings = <&kp END>, <&sndl>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         nhome: new_home {                                   // Shift + Home  = Firefox Tab Back         (Firefox Tab Back)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp HOME>, <&kp F18>;
+            bindings = <&kp HOME>, <&sndr>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         npause: new_pause {                                 // Shift + Pause = Kalshi Buy               (Kalshi Buy)
@@ -515,7 +524,7 @@ ZMK_HOLD_TAP(lsr,
                 __________ &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                __________ __________ __________ __________ __________ __________ &sndl      &sndr      __________   __________ __________ __________ &clickr    __________ __________ __________ __________ __________
+                __________ __________ __________ __________ __________ __________ &kp F17    &kp F18    &kalshi      __________ __________ __________ &clickr    &undr      __________ __________ __________ __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |          |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  MOERGO  |
                 &to_hom    &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT              &lsr SL 0  __________ __________   __________ __________ __________            &kp VOLDN  &kp VOLUP  &tblf      &tbrt      &to_hom
