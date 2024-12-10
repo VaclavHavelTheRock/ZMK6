@@ -490,8 +490,6 @@ ZMK_HOLD_TAP(lsr,
             bindings = <&kp LC(TAB)>, <&kp LC(TAB)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-
-        };
     };
 
     keymap {
