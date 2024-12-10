@@ -354,24 +354,24 @@ ZMK_HOLD_TAP(lsr,
                 = <&kp LS(LG(RIGHT))>
                 ;
         };
-        tblf: tab_left {                                   //                                          (Move Left a Tab)
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings
-                = <&kp LC(LS(TAB))>
-                ;
-        };
-        tbrt: tab_right {                                  //                                          (Move Right a Tab)
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings
-                = <&kp LC(TAB)>
-                ;
-        };
+        // tblf: tab_left {                                   //                                          (Move Left a Tab)
+        //     compatible = "zmk,behavior-macro";
+        //     wait-ms = <0>;
+        //     tap-ms = <0>;
+        //     #binding-cells = <0>;
+        //     bindings
+        //         = <&kp LC(LS(TAB))>
+        //         ;
+        // };
+        // tbrt: tab_right {                                  //                                          (Move Right a Tab)
+        //     compatible = "zmk,behavior-macro";
+        //     wait-ms = <0>;
+        //     tap-ms = <0>;
+        //     #binding-cells = <0>;
+        //     bindings
+        //         = <&kp LC(TAB)>
+        //         ;
+        // };
         undr: underscore {                                 //                                          (_)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
@@ -478,6 +478,20 @@ ZMK_HOLD_TAP(lsr,
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        tblf: tab_left {                                   //                                          (Move Left a Tab)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(TAB))>, <&kp LC(LS(TAB))>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        tbrt: tab_right {                                  //                                          (Move Right a Tab)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(TAB)>, <&kp LC(TAB)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
+        };
     };
 
     keymap {
