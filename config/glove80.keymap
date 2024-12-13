@@ -106,7 +106,7 @@ ZMK_HOLD_TAP(lct,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <0>;                // repeat on tap-into-hold
-    require-prior-idle-ms = <140>;
+    require-prior-idle-ms = <150>;     // formerly 140, getting too many false positives
     bindings = <&htonmo>, <&nspc>;
     // hold-trigger-key-positions = <R4_L R4_R RM0 RM5 RH2 RH4 RH5 RT1 RT2 RT3 RT4 LT3 LT2 LT1>;
                                 //backspace       Shift/space
