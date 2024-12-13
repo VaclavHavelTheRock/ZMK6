@@ -387,7 +387,7 @@ ZMK_HOLD_TAP(lsr,
             tap-ms = <0>;
             #binding-cells = <0>;
             bindings
-                = <&kp SPACE &kp LEFT &kp EQUAL>
+                = <&kp EQUAL &kp LEFT >
                 ;
         };
 
