@@ -520,7 +520,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp K_APP  &hml SR A  &hml GL S  &hml AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hmr AR K  &hmr GR L  &hmr SR SQT &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                &mc_selw   &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &npause    &nhome     &nend      &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &search
+                &mc_selw   &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &npause    &nhome     &nend      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &search
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
                 &mtly 1 1  &kp DOWN   &kp UP     &nleft     &nright               &lsh SL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lct CL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
