@@ -90,6 +90,16 @@ ZMK_HOLD_TAP(hml,
     hold-trigger-on-release;             // delay positional check until key-release
     hold-while-undecided;
 )
+//same but not using unecied
+ZMK_HOLD_TAP(hul,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <200>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R R3_R THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
+)
 
 /* right-hand HRMs */
 ZMK_HOLD_TAP(hmr,
@@ -101,6 +111,16 @@ ZMK_HOLD_TAP(hmr,
     hold-trigger-key-positions = <KEYS_L R3_L THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
     hold-while-undecided;
+)
+//same but not using undecideds
+ZMK_HOLD_TAP(hur,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <200>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L R3_L THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
 )
 
 // [Left Thumb] Tap: Space, Hold: MO Nav
@@ -132,6 +152,7 @@ ZMK_HOLD_TAP(lsh,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
     bindings = <&kp>, <&ntab>;
+    hold-while-undecided;
 )
 
 // [Right Thumb] Tap: Space, Hold: Shift
@@ -520,7 +541,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp MINUS  &kp Q      &kp W      &kp E      &kp R      &kp T                                                                          &kp Y      &kp U      &kp I      &kp O      &kp P      &kp EQUAL
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |   MENU   |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
-                &kp K_APP  &hml SR A  &hml GL S  &hml AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hmr AR K  &hmr GR L  &hmr SR SQT &kp ENTER
+                &kp K_APP  &hml SR A  &hml GL S  &hul AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hur AR K  &hmr GR L  &hmr SR SQT &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &mc_selw   &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &npause    &nhome     &nend      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &search
@@ -544,7 +565,7 @@ ZMK_HOLD_TAP(lsr,
                 __________ __________ &kp GRAVE  &kp MINUS  &undr      &insp                                                                          &updir     &colon     &kp SEMI   &kp BSLH   __________ __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |   MENU   |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
-                &clickr    &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 __________
+                &clickr    &hml SR N1 &hml GL N2 &hul AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hur AR N8 &hmr GR N9 &hmr SR N0 __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &to_num    __________ __________ &kp LBKT   &kp RBKT   __________ &kp F17    &kp F18    &kalshi      __________ __________ __________ &eqsp      &kp EQUAL  __________ __________ __________ __________
