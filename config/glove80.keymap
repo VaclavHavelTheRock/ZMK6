@@ -387,15 +387,6 @@ ZMK_HOLD_TAP(lsr,
         //         = <&kp LC(TAB)>
         //         ;
         // };
-        undr: underscore {                                 //                                          (_)
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings
-                = <&kp LS(MINUS)>
-                ;
-        };
         eqsp: equals_space {                                 //                                          (_)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
