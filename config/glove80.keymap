@@ -330,15 +330,6 @@ ZMK_HOLD_TAP(lsr,
                 = <&macro_tap &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK >
                 ;
         };
-        colon: colon {                                     //                                          (:)
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp LS(SEMI)>
-                ;
-        };
         btb: back_tab_firefox {                            //                                          (Undo Tab)
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
