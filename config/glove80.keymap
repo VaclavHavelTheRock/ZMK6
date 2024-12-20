@@ -483,6 +483,18 @@ ZMK_HOLD_TAP(lsr,
             bindings = <&kp C_PP>, <&kalshi>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        colon: colon {                                 // Shift + Pause = Kalshi Buy               (Kalshi Buy)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(SEMI)>, <&kp LS(SEMI)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        undr: underscore {                               // Ctrl  +  .    =  )                       (Right Parinthesis)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(MINUS)>, <&kp LS(MINUS)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 
         //  CONTROL
         // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -547,7 +559,7 @@ ZMK_HOLD_TAP(lsr,
                 &mc_selw   &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &npause    &nhome     &nend      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &search
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
-                &mtly 1 1  &kp DOWN   &kp UP     &nleft     &nright               &lsh SL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lct CL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
+                &to_gam    &kp DOWN   &kp UP     &nleft     &nright               &lsh SL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lct CL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
