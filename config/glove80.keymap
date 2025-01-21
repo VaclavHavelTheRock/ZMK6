@@ -477,13 +477,13 @@ ZMK_HOLD_TAP(lsr,
         colon: colon {                                 // Shift + Pause = Kalshi Buy               (Kalshi Buy)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LS(SEMI)>, <&kp LS(SEMI)>;
+            bindings = <&kp LS(SEMI)>, <&kp LS(BSLH)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         undr: underscore {                               // Ctrl  +  .    =  )                       (Right Parinthesis)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LS(MINUS)>, <&kp LS(MINUS)>;
+            bindings = <&kp LS(MINUS)>, <&kp LS(GRAVE)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
