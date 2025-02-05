@@ -67,7 +67,7 @@
 #define PNK        260
 
 #define SAT        100  // saturation
-#define MSAT       100  // saturation
+#define MSAT        30  // saturation
 #define BRT         25  // brightness
 
 
