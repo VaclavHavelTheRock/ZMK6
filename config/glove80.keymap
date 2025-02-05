@@ -583,7 +583,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp K_APP  &hml SR A  &hml GL S  &hul AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hur AR K  &hmr GR L  &hmr SR SQT &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                &mc_selw   &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &npause    &nhome     &nend      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &search
+                &mc_selw   &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &npause    &nhome     &nend      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &to_mhom
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
                 &to_gam    &kp DOWN   &kp UP     &nleft     &nright               &lsh SL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lct CL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
@@ -607,7 +607,7 @@ ZMK_HOLD_TAP(lsr,
                 &clickr    &hml SR N1 &hml GL N2 &hul AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hur AR N8 &hmr GR N9 &hmr SR N0 __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                &to_num    __________ &sheet     &kp LBKT   &kp RBKT   __________ &kp F17    &kp F18    &kalshi      __________ __________ __________ &eqsp      &kp EQUAL  __________ __________ __________ &to_mhom
+                &to_num    __________ &sheet     &kp LBKT   &kp RBKT   __________ &kp F17    &kp F18    &kalshi      __________ __________ __________ &eqsp      &kp EQUAL  __________ __________ __________ &search
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
                 &to_hom    &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT              &lsr SL 0  __________ __________   __________ __________ __________            &kp VOLDN  &kp VOLUP  &tblf      &tbrt      &to_hom
@@ -655,7 +655,7 @@ ZMK_HOLD_TAP(lsr,
                 &clickr    &hml SR N1 &hml GL N2 &hul CL N3 &hml AL N4 &kp N5                                                                         &kp N6     &hmr AR N7 &hur CR N8 &hmr GR N9 &hmr SR N0 __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                &to_num    __________ &sheet     &kp LBKT   &kp RBKT   __________ &kp F17    &kp F18    &kalshi      __________ __________ __________ &eqsp      &kp EQUAL  __________ __________ __________ &to_hom 
+                &to_num    __________ &sheet     &kp LBKT   &kp RBKT   __________ &kp F17    &kp F18    &kalshi      __________ __________ __________ &eqsp      &kp EQUAL  __________ __________ __________ &search 
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
                 &to_hom    &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT              &lsr SL 0  __________ __________   __________ __________ __________            &kp VOLDN  &kp VOLUP  &tblf      &tbrt      &to_hom
