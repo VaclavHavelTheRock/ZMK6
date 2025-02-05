@@ -15,9 +15,9 @@
 // layers
 #define _HOM 0
 #define _NAV 1
-#define _NUM 2
+#define _MHOM 2
 #define _MNAV 3
-#define _MNUM 4
+#define _NUM 4
 #define _GAM 5
 
 #define __________ &trans
