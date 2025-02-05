@@ -274,7 +274,6 @@ ZMK_HOLD_TAP(lsr,
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(BLU, SAT, BRT)>
                 ;
         };
-        };
         mhtonmo: mac_home_to_nav_momentary {
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
