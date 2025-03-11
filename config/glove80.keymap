@@ -575,7 +575,7 @@ ZMK_HOLD_TAP(lsr,
         nspci: new_space_intermediate {                                   // Ctrl  + Space = CTL + WIN + Left         (Move Desktop Left)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPC>, <LC(A)>;
+            bindings = <&kp SPC>, <&kp LC(A)>;
             mods = <(MOD_LGUI)>;
         };
         nspc: new_space {                                   // Ctrl  + Space = CTL + WIN + Left         (Move Desktop Left)
