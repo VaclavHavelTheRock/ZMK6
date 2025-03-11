@@ -575,8 +575,14 @@ ZMK_HOLD_TAP(lsr,
         nspc: new_space {                                   // Ctrl  + Space = CTL + WIN + Left         (Move Desktop Left)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPC>, <&kp LC(LG(RIGHT))>;
+            bindings = <&snpci>, <&kp LC(LG(RIGHT))>;
             mods = <(MOD_LCTL)>;
+        };
+        nspci: new_space_intermediate {                                   // Ctrl  + Space = CTL + WIN + Left         (Move Desktop Left)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPC>, <LC(A)>;
+            mods = <(MOD_LGUI)>;
         };
         ncomma: new_comma {                                 // Ctrl  +  ,    =  (                       (Left Parinthesis)
             compatible = "zmk,behavior-mod-morph";
