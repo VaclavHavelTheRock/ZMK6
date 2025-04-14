@@ -750,7 +750,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp ESC    &kp DOWN   &kp UP     &nleft     &nright    XXXXXXXXXX                                                                     XXXXXXXXXX &kp DOWN   &kp UP     &nleft     &nright    &kp ESC
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                XXXXXXXXXX XXXXXXXXXX &kp CR     &kp SL     &turboc    &kp TAB    &dblsp     __________ __________   __________ __________ &dblsp     &kp TAB    &turboc    &kp SR     &kp CR     XXXXXXXXXX &to_num
+                XXXXXXXXXX XXXXXXXXXX &kp CR     &kp SL     &turboc    &kp TAB    &dblsp     __________ __________   __________ __________ &dblsp     &kp TAB    &turboc    &kp SL     &kp CR     XXXXXXXXXX &to_num
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
                 &to_hom    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX            &mt NCTRL  &kp ENTER  __________   __________ &kp ENTER  &mt SFSP              &turboc    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX &to_hom
