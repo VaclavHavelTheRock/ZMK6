@@ -747,13 +747,13 @@ ZMK_HOLD_TAP(lsr,
                 &kp TAB    &kp ESC    &kp TAB    &kp ENTER  &dblsp     XXXXXXXXXX                                                                     XXXXXXXXXX &dblsp     &kp ENTER  &kp TAB    &kp ESC    &kp TAB
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |   MENU   |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
-                &kp ENTER  &kp ESC    &kp DOWN   &nleft     &nright    &kp UP                                                                         &nleft     &kp DOWN   &kp UP     &nright    &kp ESC    &kp ENTER
+                &kp ENTER  &kp TAB    &kp DOWN   &nleft     &nright    &kp UP                                                                         &nleft     &kp DOWN   &kp UP     &nright    &kp TAB    &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 XXXXXXXXXX XXXXXXXXXX &kp CR     &kp SL     &turboc    &kp TAB    &dblsp     __________ __________   __________ __________ &dblsp     &kp TAB    &turboc    &kp SL     &kp CR     XXXXXXXXXX &to_num
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
-                &to_hom    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX            &mt NCTRL  &kp ENTER  __________   __________ &kp ENTER  &mt SFSP              &turboc    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX &to_hom
+                &to_hom    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX            &mt NCTRL  &kp ESC    &kp ENTER    __________ &kp ENTER  &mt SFSP              &turboc    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX &to_hom
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
