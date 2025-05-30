@@ -747,7 +747,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp TAB    &kp ESC    &kp TAB    &kp W      &dblsp     XXXXXXXXXX                                                                     XXXXXXXXXX &dblsp     &kp ENTER  &kp TAB    &kp ESC    &kp TAB
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |   MENU   |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
-                &kp ENTER  &kp TAB    &kp S      &kp A      &kp D      &nright                                                                        &nleft     &kp DOWN   &kp UP     &nright    &kp TAB    &kp ENTER
+                &kp ENTER  &kp TAB    &kp A      &kp S      &kp D      &nright                                                                        &nleft     &kp DOWN   &kp UP     &nright    &kp TAB    &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 XXXXXXXXXX XXXXXXXXXX &kp CR     &kp SL     &turboc    &kp TAB    &dblsp     __________ __________   __________ __________ &dblsp     &kp TAB    &turboc    &kp SL     &kp CR     XXXXXXXXXX &to_num
