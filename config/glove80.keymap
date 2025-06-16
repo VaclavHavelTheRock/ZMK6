@@ -522,7 +522,7 @@ ZMK_HOLD_TAP(lsr,
             bindings = <&kp HOME>, <&sndr>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        nhome: f_4_5 {                                   // Shift + Home  = Firefox Tab Back         (Firefox Tab Back)
+        f_4_5: f_4_5 {                                   // Shift + Home  = Firefox Tab Back         (Firefox Tab Back)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp F4>, <&kp F5>;
