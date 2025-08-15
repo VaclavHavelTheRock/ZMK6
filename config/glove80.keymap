@@ -759,7 +759,7 @@ ZMK_HOLD_TAP(lsr,
                 XXXXXXXXXX XXXXXXXXXX &kp CR     &kp SL     &turboc    &kp TAB    &dblsp     __________ __________   __________ __________ &dblsp     &kp TAB    &turboc    &kp SL     &kp CR     XXXXXXXXXX &to_num
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
-                &to_hom    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX            &mt NCTRL  &kp ESC    &kp ENTER    __________ &kp ENTER  &mt SFSP              &turboc    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX &to_hom
+                &to_hom    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX            &kp SPACE  &kp ESC    &kp ENTER    __________ &kp ENTER  &kp SPACE             &turboc    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX &to_hom
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
