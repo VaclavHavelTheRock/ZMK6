@@ -528,12 +528,12 @@ ZMK_HOLD_TAP(lsr,
             bindings = <&kp F4>, <&kp F5>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        npause: new_pause {                                 // Shift + Pause = Kalshi Buy               (Kalshi Buy)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp C_PP>, <&kp F6>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+        /* npause: new_pause {                                 // Shift + Pause = Kalshi Buy               (Kalshi Buy) */
+        /*     compatible = "zmk,behavior-mod-morph"; */
+        /*     #binding-cells = <0>; */
+        /*     bindings = <&kp C_PP>, <&kp F6>; */
+        /*     mods = <(MOD_LSFT|MOD_RSFT)>; */
+        /* }; */
         colon: colon {                                 // Shift + Pause = Kalshi Buy               (Kalshi Buy)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -636,7 +636,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp K_APP  &hml SR A  &hml GL S  &hul AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hur AR K  &hmr GR L  &hmr SR SQT &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                &mc_selw   &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &npause    &nhome     &nend      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &to_mhom
+                &mc_selw   &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &kp C_PP   &nhome     &nend      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &to_mhom
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
                 &to_gam    &kp DOWN   &kp UP     &nleft     &nright               &lsh SL 0  &kp ESC    &kp ENTER    &f_4_5     &nbspc     &lct CL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
