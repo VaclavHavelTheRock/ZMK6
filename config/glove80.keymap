@@ -427,7 +427,7 @@ ZMK_HOLD_TAP(lsr,
         comortmux: comma_or_tmux {                      // Ctrl  +  .    =  )                       (Right Parinthesis)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LC(B)>;
+            bindings = <&kp LC(A)>, <&kp LC(A)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         //  CONTROL
@@ -521,7 +521,7 @@ ZMK_HOLD_TAP(lsr,
                 &clickr    &hml SR N1 &hml GL N2 &hul AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hur AR N8 &hmr GR N9 &hmr SR N0 __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                __________ &sheet     &kp SEMI   &l_curl    &r_curl    &insp      &kp F17    &kp F18    &kalshi      __________ __________ __________ &eqsp      &kp EQUAL  &tmux      __________ __________ __________
+                __________ &sheet     &kp SEMI   &l_curl    &r_curl    &insp      &kp F17    &kp F18    &kalshi      __________ __________ __________ &eqsp      &kp EQUAL  &comortmux __________ __________ __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
                 &to_hom    &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT              &lsr SL 0  __________ __________   __________ __________ __________            &kp VOLDN  &kp VOLUP  &tblf      &tbrt      &to_hom
