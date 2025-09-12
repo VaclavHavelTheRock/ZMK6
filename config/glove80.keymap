@@ -327,7 +327,7 @@ ZMK_HOLD_TAP(lsr,
             tap-ms = <0>;
             #binding-cells = <0>;
             bindings
-                = <&kp LA(A)>
+                = <&kp LC(A)>
                 ;
         };
         sheet: google_sheet_button {                               //                                          (17 Clicks)
