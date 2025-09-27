@@ -274,11 +274,11 @@ ZMK_HOLD_TAP(lsr,
             #binding-cells = <0>;
             bindings
                 = <&kp F17>
-                , <&kp ENTER>
+                , <&kp TAB>
                 , <&macro_wait_time 200>
+                , <&kp TAB>
                 , <&kp F17>
-                , <&kp F17>
-                , <&kp ENTER>
+                , <&kp TAB>
                 ;
         };
         updir: up_directory {                               //                                          (Send "../")
