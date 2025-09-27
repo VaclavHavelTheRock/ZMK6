@@ -273,12 +273,12 @@ ZMK_HOLD_TAP(lsr,
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&kp F17>
-                , <&kp TAB>
+                = <&kp TAB>
+                , <&kp ENTER>
                 , <&macro_wait_time 200>
                 , <&kp TAB>
-                , <&kp F17>
                 , <&kp TAB>
+                , <&kp ENTER>
                 ;
         };
         updir: up_directory {                               //                                          (Send "../")
