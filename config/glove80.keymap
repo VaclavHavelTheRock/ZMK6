@@ -386,6 +386,15 @@ ZMK_HOLD_TAP(lsr,
                 = <&kp LC(B)>
                 ;
         };
+        msle: mouseless {                          //                                          (Send Window Right)
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&kp LG(F)>
+                ;
+        };
         //  SHIFT
         // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         nleft: new_left_arrow {                             // LSFT  + Left  = CTRL + SHFT + TAB        (Move Tab Right)
@@ -494,7 +503,7 @@ ZMK_HOLD_TAP(lsr,
            &rgb_ug RGB_TOG &kp Q      &kp W      &kp E      &kp R      &kp T                                                                          &kp Y      &kp U      &kp I      &kp O      &kp P      __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |   MENU   |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
-                &kp F20    &hml SR A  &hml GL S  &hul AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hur AR K  &hmr GR L  &hmr SR SQT &kp ENTER
+                &msle      &hml SR A  &hml GL S  &hul AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hur AR K  &hmr GR L  &hmr SR SQT &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |  DELETE  |   PGDN   |   PGUP   | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 __________ &kp Z      &kp X      &kp C      &kp V      &kp B      &kp ENTER    &kp PG_DN  &kp PG_UP    &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   __________
