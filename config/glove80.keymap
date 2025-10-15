@@ -124,7 +124,7 @@ ZMK_HOLD_TAP(hur,
 )
 
 // [Left Thumb] Tap: Space, Hold: MO Nav
-ZMK_HOLD_TAP(lct,
+ZMK_HOLD_TAP(spnav,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <0>;                // repeat on tap-into-hold
@@ -392,7 +392,7 @@ ZMK_HOLD_TAP(lsr,
             tap-ms = <0>;
             #binding-cells = <0>;
             bindings
-                = <&kp LG(F)>
+                = <&kp F9>
                 ;
         };
         //  SHIFT
@@ -509,7 +509,7 @@ ZMK_HOLD_TAP(lsr,
                 __________ &kp Z      &kp X      &kp C      &kp V      &kp B      &kp ENTER  &kp PG_DN  &kp PG_UP    &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
-                &to_gam    &kp DOWN   &kp UP     &nleft     &nright               &lsh SL 0  &kp ESC    &kp DEL      &f_4_5     &nbspc     &lct CL 0             &kp DOWN   &kp UP     &nleft     &nright    &to_nav
+                &to_gam    &kp DOWN   &kp UP     &nleft     &nright               &lsh SL 0  &kp ESC    &kp DEL      &f_4_5     &nbspc     &spnav CL 0           &kp DOWN   &kp UP     &nleft     &nright    &to_nav
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
