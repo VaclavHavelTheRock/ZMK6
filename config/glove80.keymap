@@ -500,7 +500,7 @@ ZMK_HOLD_TAP(lsr,
         mslef: mouselessf {                          //                                          (F or activate moutless)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp F>, <&mouseless>;
+            bindings = <&kp F>, <&msle>;
             mods = <(MOD_LGUI|MOD_RGUI)>;
         };
     };
