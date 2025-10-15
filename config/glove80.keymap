@@ -96,7 +96,7 @@ ZMK_HOLD_TAP(fms,
     tapping-term-ms = <280>;
     quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <150>;
-    bindings =  <&GR>, <&mslef>;
+    bindings =  <&kp GL>, <&mslef>;
     hold-trigger-key-positions = <KEYS_R R3_R THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
     // hold-while-undecided;
