@@ -493,6 +493,17 @@ ZMK_HOLD_TAP(lsr,
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_stt {                                         // HOME + END = GUI + R (voxtype speech-to-text toggle in qtile)
+            timeout-ms = <40>;
+            require-prior-idle-ms = <300>;
+            key-positions = <56 57>;
+            bindings = <&kp LG(R)>;
+            layers = <_HOM _NAV>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
