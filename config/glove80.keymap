@@ -164,6 +164,13 @@ ZMK_HOLD_TAP(lsr,
     hold-while-undecided;
 )
 
+// [Right Thumb] Tap: End, Hold: Right GUI (hold End + ' = voxtype speech-to-text in qtile)
+ZMK_HOLD_TAP(endgui,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    bindings = <&kp>, <&kp>;
+)
+
 / {
     macros {
         // Bluetoth Profiles
@@ -493,17 +500,6 @@ ZMK_HOLD_TAP(lsr,
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-        combo_stt {                                         // HOME + END = GUI + R (voxtype speech-to-text toggle in qtile)
-            timeout-ms = <40>;
-            require-prior-idle-ms = <300>;
-            key-positions = <56 57>;
-            bindings = <&kp LG(R)>;
-            layers = <_HOM _NAV>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -523,7 +519,7 @@ ZMK_HOLD_TAP(lsr,
                 &kp F9     &hml SR A  &hml GL S  &hul AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hur AR K  &hmr GR L  &hmr SR SQT &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |  DELETE  |   PGDN   |   PGUP   | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                __________ &kp Z      &kp X      &kp C      &kp V      &kp B      &kp ENTER  &kp PG_UP  &kp PG_DN    &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   __________
+                __________ &kp Z      &kp X      &kp C      &kp V      &kp B      &kp ENTER  &kp PG_UP  &kp PG_DN    &kp C_PP   &kp HOME   &endgui GR END &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |  LAYER   |   DOWN   |    UP    |   LEFT   |  RIGHT   |          |  SHIFT   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SPACE   |          |   DOWN   |    UP    |  LEFT    |  RIGHT   |  LAYER   |
                 &to_gam    &kp DOWN   &kp UP     &nleft     &nright               &lsh SL 0  &kp ESC    &kp DEL      &f_4_5     &nbspc     &spnav CL 0           &kp DOWN   &kp UP     &nleft     &nright    &to_nav
